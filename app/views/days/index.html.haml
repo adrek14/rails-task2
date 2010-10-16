@@ -1,0 +1,20 @@
+%h2 Kalendarz
+
+- @days.each do |day|
+  - if day != nil
+    %table{ :style => "float: left; border: black 1px solid; height: 400px; width: 160px;" }
+      %th{ :style => "background: #888888;"}
+        = link_to day.date, day
+      - day.tasks.each do |task|
+        %tr
+          - if task != nil
+            %td
+              %b= task.hour.to_s + ":00"
+              =task.name
+          - else
+            %td= link_to "(+)", new_day_task_path(day)
+  - else
+    %p{ :style => "float: left; margin: 200px 0 0 0;" } (...)
+
+%p{ :style => "clear: both; height: 20px;" } 
+%p= link_to "Dodaj nowy dzień", new_day_path

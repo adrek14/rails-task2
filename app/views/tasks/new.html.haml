@@ -1,0 +1,15 @@
+%h2 Dodaj zadanie
+%h3= "na dzien " + @task.day.date.to_s
+
+- form_for [@task.day, @task] do |form|
+  #left{ :style => "float: left;" }
+    %p= form.label :name, "Nazwa"
+    %p= form.text_area :name, :style => "height: 20px;" 
+    %p= form.label :hour, "Godzina"
+    %p= form.text_area :hour, :style => "height: 20px;"
+
+  #right{ :style => "float: left;" }
+    %p= form.label :description, "Opis"
+    %p= form.text_area :description
+  %p{ :style => "clear: both;" }= form.submit "Dodaj"
+
