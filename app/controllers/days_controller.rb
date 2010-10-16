@@ -25,8 +25,12 @@ class DaysController < ApplicationController
     end
     
     def create
-
-       day.create()
-       redirect_to days 
+       y = params[:post_date][6..9].to_i
+       m = params[:post_date][3..4].to_i
+       d = params[:post_date][0..1].to_i
+       @day = Day.new
+       @day.date = DateTime.new(y, m, d) 
+       @day.save 
+       redirect_to :days 
     end    
 end

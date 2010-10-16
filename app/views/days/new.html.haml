@@ -1,8 +1,12 @@
 %h2 Dodaj dzien (zajec) 
 
-- form_for @day do |form|
-  #left{ :style => "float: left;" }
-    %p= form.label "aaa", "Data (dd-mm-rrrr)"
-    %p= form.text_area "aaa", :style => "height: 20px;" 
-%p{ :style => "clear: both;" }= form.submit "Dodaj"
+-#- form_for @day do |form|
+-#  #left{ :style => "float: left;" }
+-#    %p= form.label :date, "Data (dd-mm-rrrr)"
+-#    %p= form.text_area "aaa", :style => "height: 20px;" 
+-#%p{ :style => "clear: both;" }= form.submit "Dodaj"
 
+- form_tag :action => "create", :method => "post" do 
+  %p= label_tag "Data (dd-mm-rrrr):"
+  %p= text_field_tag(:post_date)
+  %p= submit_tag "Dodaj"
