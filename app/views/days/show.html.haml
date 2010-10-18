@@ -1,7 +1,7 @@
 
 %h2= @day.date
 
-- @day.tasks.each do |task|
+- @day.tasks.order("hour ASC").each do |task|
   %b= task.hour.to_s + ":00"
   = link_to task.name, task
   %p{ :style => "margin: 0 0 0 20px;"}= task.description

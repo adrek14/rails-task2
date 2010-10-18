@@ -5,7 +5,7 @@
     %table{ :style => "float: left; border: black 1px solid; height: 400px; width: 160px;" }
       %th{ :style => "background: #888888;"}
         = link_to day.date, day
-      - day.tasks.each do |task|
+      - day.tasks.order("hour ASC").each do |task|
         %tr
           - if task != nil
             %td
